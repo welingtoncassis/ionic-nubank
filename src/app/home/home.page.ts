@@ -74,4 +74,8 @@ export class HomePage {
     this.render.setStyle(this.background.nativeElement, 'opacity', this.initialStep === 0 ? '0' : '1');
   }
 
+  fixedBlock(): boolean {
+    return this.initialStep === this.maxTranslate;
+  }
+
 }

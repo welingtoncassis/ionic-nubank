@@ -34,7 +34,7 @@
     </ion-button>
   </div>
 
-  <div #blocks class="blocks">
+  <div #blocks class="blocks" [ngClass]="fixedBlock() ? 'fixed' : 'null' ">
     <ion-card>
       <ion-item class="ion-margin-vertical" lines="none">
         <ion-icon slot="start" name="card-outline"></ion-icon>
@@ -104,9 +104,9 @@
   </div>
 </ion-content>
 
-<ion-footer class="ion-no-border ion-no-shadow">
+<ion-footer [ngClass]="initialStep > 0 ? 'hidden': 'null'" class="ion-no-border ion-no-shadow">
   <ion-toolbar class="ion-no-margin ion-padding-vertical" color="primary">
-    <ion-slides [options] ="slidesOptions">
+    <ion-slides class="opacity-transition" [options] ="slidesOptions">
       <ion-slide *ngFor="let option of options">
         <div class="container ion-text-left">
           <ion-icon [name]="option.icon"></ion-icon>

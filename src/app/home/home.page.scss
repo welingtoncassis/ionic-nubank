@@ -75,6 +75,12 @@ ion-content {
     overflow-y: scroll;
     z-index: 999;
 
+    &.fixed {
+      position: fixed;
+      top: 110px;
+      overflow-y: hidden;
+    }
+
     ion-card {
       .cash {
         span {
@@ -110,6 +116,14 @@ ion-content {
 
 // display: flex + flex-direction: column colocou todos um em baixo do outro na mesma coluna
 ion-footer {
+  &.hidden {
+    height: 0;
+
+    ion-slides {
+      opacity: 0;
+    }
+  }
+
   ion-slide {
     .container {
       width: 100%;
