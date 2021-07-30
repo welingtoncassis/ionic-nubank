@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Renderer2, ViewChild } from '@angular/core';
 import { AnimationController, Animation, Platform } from '@ionic/angular';
 
 @Component({
@@ -9,6 +9,7 @@ import { AnimationController, Animation, Platform } from '@ionic/angular';
 export class HomePage {
 
   @ViewChild('blocks') blocks: any;
+  @ViewChild('background') background: any;
 
   public options: Array<any> = [
     { icon: 'person-add-outline', text: 'Indicar amigos' },
@@ -42,7 +43,8 @@ export class HomePage {
 
   constructor(
     private animationCtrl: AnimationController,
-    private platform: Platform
+    private platform: Platform,
+    private render: Renderer2
   ) {
     // pega a altura da tela e diminui o suficiente para não esconder todo o conteudo e poder arrastar para cima de volta
     this.maxTranslate = this.platform.height() - 200;
@@ -57,6 +59,8 @@ export class HomePage {
     this.initialStep = this.initialStep === 0 ? this.maxTranslate : 0;
 
     this.animation.direction(this.initialStep === 0 ? 'reverse' : 'normal').play();
+
+    this.setBackgroundOpacity();
   }
 
   createAnimation() {
@@ -64,6 +68,10 @@ export class HomePage {
     .addElement(this.blocks.nativeElement)
     .duration(300)
     .fromTo('transform', 'translateY(0)', `translateY(${this.maxTranslate}px)`);
+  }
+
+  setBackgroundOpacity() {
+    this.render.setStyle(this.background.nativeElement, 'opacity', this.initialStep === 0 ? '0' : '1');
   }
 
 }
