@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  options: Array<any> = [
+  public options: Array<any> = [
     { icon: 'person-add-outline', text: 'Indicar amigos' },
     { icon: 'phone-portrait-outline', text: 'Recarga de celular' },
     { icon: 'wallet-outline', text: 'Depositar' },
@@ -17,6 +17,11 @@ export class HomePage {
     { icon: 'lock-open-outline', text: 'Bloquear cartão' },
     { icon: 'card-outline', text: 'Cartão virtual' },
   ];
+
+  public slidesOptions: any = {
+    slidesPerView: 3,
+    freeMode: true
+  };
 
   constructor() {}
 

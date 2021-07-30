@@ -23,3 +23,27 @@ ion-header {
     }
   }
 }
+
+// display: flex + flex-direction: column colocou todos um em baixo do outro na mesma coluna
+ion-footer {
+  ion-slide {
+    .container {
+      width: 100%;
+      height: 100px;
+      background: var(--ion-color-primary-tint);
+      padding: 10px;
+      margin: 0 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      ion-icon {
+        font-size: 24px;
+      }
+
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+}

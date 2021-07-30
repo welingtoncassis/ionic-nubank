@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border ion-no-shadow">
   <ion-toolbar color="primary">
     <ion-title class="ion-text-center">
       <img src="../../assets/logo/nubank-logo.png" alt="">
@@ -11,16 +11,18 @@
 </ion-header>
 
 <ion-content color="primary">
-  <div>
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
 </ion-content>
 
-<ion-footer class="ion-no-border">
+<ion-footer class="ion-no-border ion-no-shadow">
   <ion-toolbar color="primary">
-    <ion-title>
-      footer
-    </ion-title>
+    <ion-slides [options] ="slidesOptions">
+      <ion-slide *ngFor="let option of options">
+        <div class="container ion-text-left">
+          <ion-icon [name]="option.icon"></ion-icon>
+          <span>{{option.text}}</span>
+        </div>
+      </ion-slide>
+    </ion-slides>
   </ion-toolbar>
 </ion-footer>
