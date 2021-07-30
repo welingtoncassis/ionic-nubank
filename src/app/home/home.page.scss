@@ -27,6 +27,7 @@ ion-header {
 
 ion-content {
   .background {
+
     .bank-information {
       .qrcode {
         width: 100px;
@@ -59,6 +60,39 @@ ion-content {
     .logout {
       margin-top: 32px;
       margin-bottom: 100px;
+    }
+  }
+
+  .blocks {
+    ion-card {
+      .cash {
+        span {
+          &.value {
+            font-size: 30px;
+            display: block;
+          }
+
+          &.blue {
+            color: #0ab9cd;
+          }
+
+          &.green {
+            color: #94c22b;
+          }
+        }
+      }
+
+      .footer {
+        background: #f4f5f8;
+      }
+
+      .title {
+        font-size: 20px;
+      }
+
+      .gift {
+        font-size: 30px;
+      }
     }
   }
 }
